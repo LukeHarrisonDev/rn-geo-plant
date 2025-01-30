@@ -3,7 +3,6 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import SvgHome from '../../assets/tab-icons/tab-icon-components/Home';
 
-
 import HomeStack from './HomeStack';
 import PlantListStack from './PlantListStack';
 import FindAPlantStack from './FindAPlantStack';
@@ -22,43 +21,43 @@ const AppNavigator = () => {
     <NavigationContainer>
         <Tab.Navigator
         screenOptions={{
+            tabBarStyle: { backgroundColor : colours.bgHighlight }, 
             tabBarActiveTintColor: colours.highlight,
             tabBarInactiveTintColor: colours.dark,
-            tabBarActiveBackgroundColor: colours.bgHighlight,
-            tabBarInactiveBackgroundColor: colours.bgHighlight,
         }}>
+            
             <Tab.Screen name="Home" component={HomeStack}
             options={{
                 tabBarIcon: ({ color }) => {
-                    return <SvgHome color={color} size={35} />
+                    return <SvgHome color={color} size={45} />
                 }
             }}/>
 
             <Tab.Screen name="PlantList" component={PlantListStack}
             options={{
                 tabBarIcon: ({ color }) => {
-                    return <SvgListSl color={color} size={35} />
+                    return <SvgListSl color={color} size={45} />
                 }
             }}/>
 
             <Tab.Screen name="FindAPlant" component={FindAPlantStack}
             options={{
                 tabBarIcon: ({ color }) => {
-                    return <SvgFind color={color} size={35} />
+                    return <SvgFind color={color} size={45} />
                 }
             }}/>
 
             <Tab.Screen name="Chat" component={ChatStack}
             options={{
                 tabBarIcon: ({ color }) => {
-                    return <SvgChat color={color} size={35} />
+                    return <SvgChat color={color} size={45} />
                 }
             }}/>
 
             <Tab.Screen name="MyProfile" component={MyProfileStack}
             options={{
                 tabBarIcon: ({ color }) => {
-                    return <SvgUser color={color} size={35} />
+                    return <SvgUser color={color} size={45} />
                 }
             }}/>
 
@@ -69,4 +68,11 @@ const AppNavigator = () => {
 
 export default AppNavigator
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#000000',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  });
