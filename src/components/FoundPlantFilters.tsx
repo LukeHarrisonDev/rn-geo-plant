@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 
-const FoundPlantsSortBy = () => {
+const FoundPlantFilters = () => {
   return (
     <View>
-      <Text>FoundPlantsSortBy</Text>
+      <Text>FoundPlantFilters</Text>
     </View>
   )
 }
 
-export default FoundPlantsSortBy
+export default FoundPlantFilters
 
 const styles = StyleSheet.create({})
