@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 
-const FoundPlantsSortBy = () => {
+const LoginForm = () => {
   return (
     <View>
-      <Text>FoundPlantsSortBy</Text>
+      <Text>LoginForm</Text>
     </View>
   )
 }
 
-export default FoundPlantsSortBy
+export default LoginForm
 
 const styles = StyleSheet.create({})

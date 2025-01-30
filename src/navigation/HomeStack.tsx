@@ -1,14 +1,37 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import LoggedOutScreen from '../screens/LoggedOutScreen'
+import SignUpScreen from '../screens/SignUpScreen'
+import LoginScreen from '../screens/LoginScreen'
+
+const Stack = createNativeStackNavigator()
 
 const HomeStack = () => {
   return (
-    <View>
-      <Text>HomeStack</Text>
-    </View>
+    <Stack.Navigator>
+
+      <Stack.Screen name="LoggedOutScreen" component={LoggedOutScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen name="SignUpScreen" component={SignUpScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen name="LoginScreen" component={LoginScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+    </Stack.Navigator>
+
+    // If logged in, show LoggedInScreen with no stack. Put it here?
+
   )
 }
 
 export default HomeStack
-
-const styles = StyleSheet.create({})
