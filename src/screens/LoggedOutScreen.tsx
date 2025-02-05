@@ -4,7 +4,7 @@ import colours from '../config/colours'
 const LoggedOutScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.titleText}>Home</Text>
+            <Text style={styles.titleText}>Geo Plant</Text>
         </SafeAreaView>
     )
 }

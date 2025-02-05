@@ -30,7 +30,8 @@ const AppNavigator = () => {
             options={{
                 tabBarIcon: ({ color }) => {
                     return <SvgHome color={color} size={45} />
-                }
+                },
+                headerShown: false,
             }}/>
 
             <Tab.Screen name="PlantList" component={PlantListStack}

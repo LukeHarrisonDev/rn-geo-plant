@@ -5,9 +5,16 @@ export type Plant = {
     plant_image_url: string
     rarity: number
     season: string[]
+}
+
+export type UserPlant = Plant & {
     find_amount: number
 }
-  
-export type ApiResponse = {
+
+export type PlantsResponse = {
     plants: Plant[]
+}
+
+export type UserPlantsResponse = PlantsResponse & {
+    plants: UserPlant[]
 }
