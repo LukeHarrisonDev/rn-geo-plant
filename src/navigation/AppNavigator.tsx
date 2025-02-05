@@ -37,28 +37,32 @@ const AppNavigator = () => {
             options={{
                 tabBarIcon: ({ color }) => {
                     return <SvgListSl color={color} size={45} />
-                }
+                },
+                headerShown: false,
             }}/>
 
             <Tab.Screen name="FindAPlant" component={FindAPlantStack}
             options={{
                 tabBarIcon: ({ color }) => {
                     return <SvgFind color={color} size={45} />
-                }
+                },
+                headerShown: false,
             }}/>
 
             <Tab.Screen name="Chat" component={ChatStack}
             options={{
                 tabBarIcon: ({ color }) => {
                     return <SvgChat color={color} size={45} />
-                }
+                },
+                headerShown: false,
             }}/>
 
             <Tab.Screen name="MyProfile" component={MyProfileStack}
             options={{
                 tabBarIcon: ({ color }) => {
                     return <SvgUser color={color} size={45} />
-                }
+                },
+                headerShown: false,
             }}/>
 
         </Tab.Navigator>
