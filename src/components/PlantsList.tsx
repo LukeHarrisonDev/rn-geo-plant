@@ -1,10 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, FlatList, StyleSheet } from 'react-native'
 
 const PlantsList = () => {
   return (
-    <View>
-      <Text>PlantsList</Text>
-    </View>
+    <FlatList
+      data={["Hello", "How are you?"]}
+      renderItem={({item}) => {
+        return (
+          <Text>{item}</Text>
+        )
+      }}/>
   )
 }
 
