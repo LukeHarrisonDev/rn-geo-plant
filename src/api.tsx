@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios'
-import { PlantsResponse } from './types/plants';
+import { PlantsResponse, UserPlantsResponse } from './types/plants';
 
 const geoPlantApi: AxiosInstance = axios.create({
     baseURL: "https://geo-plant.onrender.com/api"
@@ -8,4 +8,9 @@ const geoPlantApi: AxiosInstance = axios.create({
 export async function fetchPlants(): Promise<PlantsResponse> {
     const response = await geoPlantApi.get<PlantsResponse>("/plants")
     return response.data
-  }
+}
+
+export async function fetchUsersPlants(userId: number): Promise<UserPlantsResponse> {
+    const response = await geoPlantApi.get<UserPlantsResponse>(`/users/${userId}/plants`)
+    return response.data
+}
