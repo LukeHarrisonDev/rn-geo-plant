@@ -10,15 +10,26 @@ const PlantsList = () => {
     const [plantList, setPlantList] = useState<UserPlant[]>([])
     
     useEffect(() => {
+        setIsLoading(true)
         async function loadUserPlants() {
             const plantListFromApi = await fetchUsersPlants(5) // Hard coded User for now
             setPlantList(plantListFromApi.plants)
         }
         loadUserPlants()
+        setIsLoading(false)
     }, [])
 
     function handlePress () {
         console.log("Hello")
+    }
+
+    if(isLoading) {
+        return (
+            <ActivityIndicator
+                size="large"
+                color={colours.darkHighlight}  
+            />
+        )
     }
 
     return (
@@ -30,10 +41,15 @@ const PlantsList = () => {
             renderItem={({item}) => {
                 return (
                     <Pressable 
-                        style={item.find_amount === 0 ? styles.dark : styles.plantCard}
                         onPress={() => {
                             handlePress()
-                        }}>
+                        }}
+                        style={styles.plantCard}
+                        ////// Grey Background for cards if not found!
+                        // style={item.find_amount === 0 ? styles.dark : styles.plantCard}
+                    >
+                        {/* ////// Alternate Grey Foreground for cards if not found!*/}
+                        {item.find_amount === 0 ? <View style={styles.greyCard}/> : null}
                         <Image
                             style={styles.image}
                             source={{
@@ -68,6 +84,16 @@ const styles = StyleSheet.create({
         margin: 8,
         padding: 7,
         alignSelf: "center",
+    },
+    // Size is not dynamic...
+    greyCard: {
+        position: "absolute",
+        width: 164,
+        height: 215,
+        backgroundColor: "grey",
+        zIndex: 1,
+        opacity: 0.8,
+        borderRadius: 15,
     },
     // I'm sure theres a better way to do this...
     dark: {

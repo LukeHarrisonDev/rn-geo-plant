@@ -30,41 +30,76 @@ const AppNavigator = () => {
             <Tab.Screen name="Home" component={HomeStack}
             options={{
                 tabBarIcon: ({ color }) => {
-                    return <SvgHome color={color} size={45} />
+                    return (
+                        <SvgHome 
+                            color={color} 
+                            size={40}
+                            style={styles.icon}
+                        />
+                    )
                 },
                 headerShown: false,
+                tabBarLabel: () => null
             }}/>
 
             <Tab.Screen name="PlantList" component={PlantListStack}
             options={{
                 tabBarIcon: ({ color }) => {
-                    return <SvgListBl color={color} size={45} />
+                    return (
+                        <SvgListBl 
+                            color={color} 
+                            size={40}
+                            style={styles.icon}
+                        />
+                    )
                 },
                 headerShown: false,
+                tabBarLabel: () => null
             }}/>
 
             <Tab.Screen name="FindAPlant" component={FindAPlantStack}
             options={{
                 tabBarIcon: ({ color }) => {
-                    return <SvgFind color={color} size={45} />
+                    return (
+                        <SvgFind 
+                            color={color} 
+                            size={40}
+                            style={styles.icon}
+                        />
+                    )
                 },
                 headerShown: false,
+                tabBarLabel: () => null
             }}/>
 
             <Tab.Screen name="Chat" component={ChatStack}
             options={{
                 tabBarIcon: ({ color }) => {
-                    return <SvgChat color={color} size={45} />
+                    return (
+                        <SvgChat 
+                            color={color} 
+                            size={40}
+                            style={styles.icon}
+                        />
+                    )
                 },
                 headerShown: false,
+                tabBarLabel: () => null
             }}/>
 
             <Tab.Screen name="MyProfile" component={MyProfileStack}
             options={{
                 tabBarIcon: ({ color }) => {
-                    return <SvgUser color={color} size={45} />
+                    return (
+                        <SvgUser 
+                            color={color} 
+                            size={40}
+                            style={styles.icon}
+                        />
+                    )
                 },
                 headerShown: false,
+                tabBarLabel: () => null
             }}/>
 
         </Tab.Navigator>
@@ -73,3 +108,9 @@ const AppNavigator = () => {
 }
 
 export default AppNavigator
+
+const styles = StyleSheet.create({
+    icon: {
+        marginTop: 25,
+    }
+})
