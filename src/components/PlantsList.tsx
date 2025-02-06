@@ -6,22 +6,33 @@ import colours from '../config/colours'
 
 const PlantsList = () => {
 
-    const [isLoading, setIsLoading] = useState(true)
     const [plantList, setPlantList] = useState<UserPlant[]>([])
+    const [isLoading, setIsLoading] = useState(true)
+    const [refreshing, setRefreshing] = useState(false)
     
-    useEffect(() => {
+    async function loadUserPlants() {
         setIsLoading(true)
-        async function loadUserPlants() {
-            const plantListFromApi = await fetchUsersPlants(5) // Hard coded User for now
-            setPlantList(plantListFromApi.plants)
-        }
-        loadUserPlants()
+        const plantListFromApi = await fetchUsersPlants(5) // Hard coded User for now
+        setPlantList(plantListFromApi.plants)
         setIsLoading(false)
+    }
+    
+    async function handleRefresh() {
+        setRefreshing(true)
+        setTimeout(async () => {
+            await loadUserPlants()
+            setRefreshing(false)
+        }, 2000)
+    }
+
+    useEffect(() => {
+        loadUserPlants()
     }, [])
 
-    function handlePress () {
+    function handlePress() {
         console.log("Hello")
     }
+
 
     if(isLoading) {
         return (
@@ -38,6 +49,8 @@ const PlantsList = () => {
             data={plantList}
             keyExtractor={(item) => item.plant_id.toString()}
             numColumns={2}
+            refreshing={refreshing}
+            onRefresh={handleRefresh}
             renderItem={({item}) => {
                 return (
                     <Pressable 

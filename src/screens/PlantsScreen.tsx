@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colours.primaryBackground,
     alignItems: 'center',
+    position: "relative"
   },
   titleText: {
     color: colours.dark,
