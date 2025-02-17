@@ -3,6 +3,7 @@ import colours from '../config/colours'
 
 const FoundPlantsButton = () => {
     return (
+        //// Pressable is more customisable
         <TouchableOpacity
             onPress={() => console.log("Plant Map Pressed")}
             style={styles.button}

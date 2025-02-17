@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     titleText: {
+        fontFamily: "PMarker",
         color: colours.dark,
-        fontSize: 80
+        fontSize: 60
     },
 })
