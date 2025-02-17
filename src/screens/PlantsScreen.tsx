@@ -20,10 +20,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colours.primaryBackground,
     alignItems: 'center',
-    position: "relative"
+    position: "relative",
   },
   titleText: {
+    fontFamily: "PMarker",
     color: colours.dark,
-    fontSize: 80
+    fontSize: 60,
+    textAlign: "center",
+    width: "100%",
   },
 })
