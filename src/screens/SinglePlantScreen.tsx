@@ -4,7 +4,7 @@ import colours from '../config/colours'
 const SinglePlantScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.titleText}>*Plant Name*</Text>
+            <Text style={styles.titleText}>*Single*</Text>
         </SafeAreaView>
     )
 }

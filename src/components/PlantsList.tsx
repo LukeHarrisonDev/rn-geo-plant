@@ -1,10 +1,10 @@
 import { Pressable, Text, FlatList, StyleSheet, Image, ActivityIndicator, View } from 'react-native'
 import { fetchUsersPlants } from '../api'
 import { useEffect, useState } from 'react'
-import { UserPlant } from '../types/plants'
+import { PlantsCardProps, UserPlant } from '../types/plants'
 import colours from '../config/colours'
 
-const PlantsList = () => {
+const PlantsList = ({ navigation }: PlantsCardProps) => {
 
     const [plantList, setPlantList] = useState<UserPlant[]>([])
     const [isLoading, setIsLoading] = useState(true)
@@ -29,10 +29,10 @@ const PlantsList = () => {
         loadUserPlants()
     }, [])
 
-    function handlePress() {
-        console.log("Hello")
+    function handlePress(plantId: number) {
+        console.log(plantId)
+        navigation.navigate("SingleFoundPlantScreen", { findId: plantId })
     }
-
 
     if(isLoading) {
         return (
@@ -55,7 +55,7 @@ const PlantsList = () => {
                 return (
                     <Pressable 
                         onPress={() => {
-                            handlePress()
+                            handlePress(item.plant_id)
                         }}
                         style={styles.plantCard}
                         ////// Grey Background for cards if not found!

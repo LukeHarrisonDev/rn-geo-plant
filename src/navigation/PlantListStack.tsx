@@ -3,8 +3,9 @@ import PlantsScreen from "../screens/PlantsScreen"
 import SinglePlantScreen from "../screens/SinglePlantScreen"
 import FoundPlantsScreen from "../screens/FoundPlantsScreen"
 import SingleFoundPlantScreen from "../screens/SingleFoundPlantScreen"
+import { PlantListStackParamList } from "../types/plants"
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator<PlantListStackParamList>()
 
 const PlantListStack = () => {
   return (

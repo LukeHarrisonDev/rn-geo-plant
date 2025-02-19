@@ -1,3 +1,6 @@
+import { NativeStackNavigationProp } from "@react-navigation/native-stack"
+
+//// API ////
 export type Plant = {
     plant_id: number
     plant_name: string
@@ -17,4 +20,21 @@ export type PlantsResponse = {
 
 export type UserPlantsResponse = PlantsResponse & {
     plants: UserPlant[]
+}
+
+
+
+//// Navigation ////
+export type PlantListStackParamList = {
+    PlantsScreen: undefined
+    SinglePlantScreen: { plantId: number }
+    FoundPlantsScreen: undefined
+    SingleFoundPlantScreen: { findId: number }
+}
+
+export type PlantCardNavigationProp =
+NativeStackNavigationProp<PlantListStackParamList, 'PlantsScreen'>
+
+export type PlantsCardProps= {
+    navigation: PlantCardNavigationProp
 }
