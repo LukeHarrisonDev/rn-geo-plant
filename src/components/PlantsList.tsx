@@ -29,9 +29,9 @@ const PlantsList = ({ navigation }: PlantsCardProps) => {
         loadUserPlants()
     }, [])
 
-    function handlePress(plantId: number) {
+    function handlePress(plantId: number, findAmount: number, plantName: string) {
         console.log(plantId)
-        navigation.navigate("SingleFoundPlantScreen", { findId: plantId })
+        navigation.navigate("SinglePlantScreen", { plantId, findAmount, plantName })
     }
 
     if(isLoading) {
@@ -55,7 +55,7 @@ const PlantsList = ({ navigation }: PlantsCardProps) => {
                 return (
                     <Pressable 
                         onPress={() => {
-                            handlePress(item.plant_id)
+                            handlePress(item.plant_id, item.find_amount, item.plant_name)
                         }}
                         style={styles.plantCard}
                         ////// Grey Background for cards if not found!

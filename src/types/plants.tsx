@@ -27,7 +27,7 @@ export type UserPlantsResponse = PlantsResponse & {
 //// Navigation ////
 export type PlantListStackParamList = {
     PlantsScreen: undefined
-    SinglePlantScreen: { plantId: number }
+    SinglePlantScreen: { plantId: number; findAmount: number, plantName: string }
     FoundPlantsScreen: undefined
     SingleFoundPlantScreen: { findId: number }
 }
