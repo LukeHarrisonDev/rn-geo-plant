@@ -22,7 +22,6 @@ const PlantListStack = () => {
                         </View>
                     ),
                     title: "All Plants",
-                    // headerTitleAlign: "center",
                     headerStyle: {
                         backgroundColor: colours.bgHighlight
                     },
@@ -47,7 +46,6 @@ const PlantListStack = () => {
                             </Text>
                         </View>
                     ),
-                    // headerTitleAlign: "center",
                     headerStyle: {
                         backgroundColor: colours.bgHighlight
                     },
@@ -57,32 +55,38 @@ const PlantListStack = () => {
 
             <Stack.Screen name="FoundPlantsScreen" component={FoundPlantsScreen}
                 options={{
-                    title: "Your Plants",
+                    headerTitle: () => (
+                        <View style={styles.container}>
+                            <Text style={styles.titleText} numberOfLines={1} adjustsFontSizeToFit>
+                                Plant Map
+                            </Text>
+                        </View>
+                    ),
+                    title: "Plant Map",
                     headerStyle: {
                         backgroundColor: colours.bgHighlight
                     },
-                    headerTitleStyle: {
-                        fontFamily: "PMarker",
-                        color: colours.dark,
-                        fontSize: 40,
-                    },
-                    headerTintColor: colours.dark
+                    headerTintColor: colours.dark,
                 }}
             />
 
             <Stack.Screen name="SingleFoundPlantScreen" component={SingleFoundPlantScreen}
-                options={{
-                    title: "All Plants",
+                options={({ route }) => ({
+                    // title: route.params.findId,
+                    ////////// This should have the route 
+                    title: "SingleFoundPlantScreen",
+                    headerTitle: () => (
+                        <View style={styles.container}>
+                            <Text style={styles.titleText} numberOfLines={1} adjustsFontSizeToFit>
+                                {route.params.findId}
+                            </Text>
+                        </View>
+                    ),
                     headerStyle: {
                         backgroundColor: colours.bgHighlight
                     },
-                    headerTitleStyle: {
-                        fontFamily: "PMarker",
-                        color: colours.dark,
-                        fontSize: 40,
-                    },
-                    headerTintColor: colours.dark
-                }}
+                    headerTintColor: colours.dark,
+                })}
             />
         </Stack.Navigator>
     )

@@ -30,7 +30,6 @@ const PlantsList = ({ navigation }: PlantsCardProps) => {
     }, [])
 
     function handlePress(plantId: number, findAmount: number, plantName: string) {
-        console.log(plantId)
         navigation.navigate("SinglePlantScreen", { plantId, findAmount, plantName })
     }
 

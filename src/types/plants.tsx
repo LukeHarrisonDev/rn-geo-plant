@@ -25,6 +25,7 @@ export type UserPlantsResponse = PlantsResponse & {
 
 
 //// Navigation ////
+//// PlantListStack
 export type PlantListStackParamList = {
     PlantsScreen: undefined
     SinglePlantScreen: { plantId: number; findAmount: number, plantName: string }
@@ -32,9 +33,20 @@ export type PlantListStackParamList = {
     SingleFoundPlantScreen: { findId: number }
 }
 
+//// PlantScreen
 export type PlantCardNavigationProp =
 NativeStackNavigationProp<PlantListStackParamList, 'PlantsScreen'>
 
 export type PlantsCardProps= {
     navigation: PlantCardNavigationProp
+}
+
+
+
+//// FoundPlantScreen
+export type FoundPlantCardNavigationProp =
+NativeStackNavigationProp<PlantListStackParamList, 'FoundPlantsScreen'>
+
+export type FoundPlantsCardProps= {
+    navigation: FoundPlantCardNavigationProp
 }
