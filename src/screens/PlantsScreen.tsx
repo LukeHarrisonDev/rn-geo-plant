@@ -1,4 +1,4 @@
-import { StyleSheet, Text, SafeAreaView } from 'react-native'
+import { StyleSheet, SafeAreaView } from 'react-native'
 import colours from '../config/colours'
 import PlantsList from '../components/PlantsList'
 import FoundPlantsButton from '../components/FoundPlantsButton'

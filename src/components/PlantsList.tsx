@@ -6,6 +6,9 @@ import colours from '../config/colours'
 
 const PlantsList = ({ navigation }: PlantsCardProps) => {
 
+    ////Different use for when the component needs children... Look into this.
+// const PlantsList: React.FC<PlantsCardProps> =({navigation}) => {
+
     const [plantList, setPlantList] = useState<UserPlant[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [refreshing, setRefreshing] = useState(false)
