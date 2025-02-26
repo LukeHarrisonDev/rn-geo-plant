@@ -24,6 +24,10 @@ export type UserPlantsResponse = PlantsResponse & {
     plants: UserPlant[]
 }
 
+export type SinglePlantResponse = {
+    plant: Plant
+}
+
 
 
 //// Navigation ////

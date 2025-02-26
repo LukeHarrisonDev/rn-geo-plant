@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     plantCard: {
-        position: 'relative',
+        position: "relative",
         borderRadius: 15,
         backgroundColor: colours.bgHighlight,
         alignItems: "center",
