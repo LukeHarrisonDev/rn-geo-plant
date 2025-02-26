@@ -1,14 +1,13 @@
-import { StyleSheet, Text, SafeAreaView } from 'react-native'
+import { StyleSheet, SafeAreaView } from 'react-native'
 import colours from '../config/colours'
-import FoundPlantsList from '../components/FoundPlantsList'
 
 import { FoundPlantsCardProps } from '../types/plants'
+import FoundPlantsProvider from '../components/FoundPlantsProvider'
 
-const FoundPlantsScreen = ({ navigation }: FoundPlantsCardProps) => {
+const FoundPlantsScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.titleText}>All Plants</Text>
-            <FoundPlantsList navigation={navigation}/>
+            <FoundPlantsProvider/>
         </SafeAreaView>
     )
 }

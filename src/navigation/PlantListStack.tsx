@@ -62,7 +62,7 @@ const PlantListStack = () => {
                             </Text>
                         </View>
                     ),
-                    title: "Plant Map",
+                    title: "FoundPlantsScreen",
                     headerStyle: {
                         backgroundColor: colours.bgHighlight
                     },
