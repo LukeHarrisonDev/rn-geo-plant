@@ -1,13 +1,13 @@
 import { Pressable, Text, FlatList, StyleSheet, Image, ActivityIndicator, View } from 'react-native'
 import { fetchUsersPlants } from '../api'
 import { useEffect, useState } from 'react'
-import { PlantsCardProps, UserPlant } from '../types/plants'
+import { PlantsScreenProps, UserPlant } from '../types/plants'
 import colours from '../config/colours'
 
-const PlantsList = ({ navigation }: PlantsCardProps) => {
+const PlantsList = ({ navigation }: PlantsScreenProps) => {
 
     ////Different use for when the component needs children... Look into this.
-// const PlantsList: React.FC<PlantsCardProps> =({navigation}) => {
+// const PlantsList: React.FC<PlantsScreenProps> =({navigation}) => {
 
     const [plantList, setPlantList] = useState<UserPlant[]>([])
     const [isLoading, setIsLoading] = useState(true)
@@ -15,8 +15,8 @@ const PlantsList = ({ navigation }: PlantsCardProps) => {
     
     async function loadUserPlants() {
         setIsLoading(true)
-        const plantListFromApi = await fetchUsersPlants(5) // Hard coded User for now
-        setPlantList(plantListFromApi.plants)
+        const plantListData = await fetchUsersPlants(5) // Hard coded User for now
+        setPlantList(plantListData.plants)
         setIsLoading(false)
     }
     
@@ -88,6 +88,7 @@ export default PlantsList
 
 const styles = StyleSheet.create({
     list: {
+        marginTop: 20,
         alignSelf: "center",
         alignItems: "center",
     },

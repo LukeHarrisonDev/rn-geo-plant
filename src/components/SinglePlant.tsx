@@ -9,9 +9,10 @@ const SinglePlant = ({plantId, findAmount, plantName}: SinglePlantProps) => {
         const [plant, setPlant] = useState<Plant | null>(null)
 
         async function loadSinglePlant(plantId: number) {
-            const singlePlantFromApi = await fetchSinglePlant(plantId)
-            setPlant(singlePlantFromApi.plant)
+            const singlePlantData = await fetchSinglePlant(plantId)
+            setPlant(singlePlantData.plant)
         }
+        
         useEffect(() => {
             loadSinglePlant(plantId)
         }, [])

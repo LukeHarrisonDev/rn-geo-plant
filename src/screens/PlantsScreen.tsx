@@ -3,13 +3,13 @@ import colours from '../config/colours'
 import PlantsList from '../components/PlantsList'
 import FoundPlantsButton from '../components/FoundPlantsButton'
 
-import { PlantsCardProps } from '../types/plants'
+import { PlantsScreenProps } from '../types/plants'
 
-const PlantsScreen = ({ navigation }: PlantsCardProps) => {
+const PlantsScreen = ({ navigation }: PlantsScreenProps) => {
     return (
         <SafeAreaView style={styles.container}>
             <PlantsList navigation={navigation}/>
-            {/* <FoundPlantsButton/> */}
+            <FoundPlantsButton navigation={navigation}/>
         </SafeAreaView>
     )
 }

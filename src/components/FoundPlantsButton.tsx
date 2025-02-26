@@ -1,18 +1,20 @@
 import { TouchableOpacity, StyleSheet, Text } from 'react-native'
 import colours from '../config/colours'
-//// This is old
-import { PlantsCardProps } from '../types/plants'
+import { PlantsScreenProps } from '../types/plants'
 
-//////////////////////////////////////////// This is old
-const FoundPlantsButton = ({ navigation }: PlantsCardProps) => {
+const FoundPlantsButton = ({ navigation }: PlantsScreenProps) => {
+
     function handlePress() {
-
+        navigation.navigate("FoundPlantsScreen")
     }
+
     return (
 
         //// Pressable is more customisable, ---Change this later ////
         <TouchableOpacity
-            onPress={() => navigation.navigate("SinglePlantScreen", { plantId: 2 })}
+            onPress={() => {
+                handlePress()
+            }} 
             style={styles.button}
         >
             <Text style={styles.buttonText}>Plant Map</Text>
