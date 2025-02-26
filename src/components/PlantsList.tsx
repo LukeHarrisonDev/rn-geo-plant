@@ -1,10 +1,13 @@
 import { Pressable, Text, FlatList, StyleSheet, Image, ActivityIndicator, View } from 'react-native'
 import { fetchUsersPlants } from '../api'
 import { useEffect, useState } from 'react'
-import { UserPlant } from '../types/plants'
+import { PlantsCardProps, UserPlant } from '../types/plants'
 import colours from '../config/colours'
 
-const PlantsList = () => {
+const PlantsList = ({ navigation }: PlantsCardProps) => {
+
+    ////Different use for when the component needs children... Look into this.
+// const PlantsList: React.FC<PlantsCardProps> =({navigation}) => {
 
     const [plantList, setPlantList] = useState<UserPlant[]>([])
     const [isLoading, setIsLoading] = useState(true)
@@ -29,10 +32,9 @@ const PlantsList = () => {
         loadUserPlants()
     }, [])
 
-    function handlePress() {
-        console.log("Hello")
+    function handlePress(plantId: number, findAmount: number, plantName: string) {
+        navigation.navigate("SinglePlantScreen", { plantId, findAmount, plantName })
     }
-
 
     if(isLoading) {
         return (
@@ -55,7 +57,7 @@ const PlantsList = () => {
                 return (
                     <Pressable 
                         onPress={() => {
-                            handlePress()
+                            handlePress(item.plant_id, item.find_amount, item.plant_name)
                         }}
                         style={styles.plantCard}
                         ////// Grey Background for cards if not found!
@@ -90,7 +92,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     plantCard: {
-        position: 'relative',
+        position: "relative",
         borderRadius: 15,
         backgroundColor: colours.bgHighlight,
         alignItems: "center",
