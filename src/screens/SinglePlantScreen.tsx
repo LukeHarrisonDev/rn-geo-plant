@@ -3,7 +3,7 @@ import colours from '../config/colours'
 import { Plant, SinglePlantScreenProps } from '../types/plants'
 import SinglePlant from '../components/SinglePlant'
 
-const SinglePlantScreen: React.FC<SinglePlantScreenProps> = ({ route }) => {
+const SinglePlantScreen = ({ route }: SinglePlantScreenProps) => {
 
     const { plantId, findAmount, plantName } = route.params
 

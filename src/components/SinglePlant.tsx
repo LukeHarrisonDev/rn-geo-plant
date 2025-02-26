@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { Plant, SinglePlantProps } from '../types/plants'
 import { useState } from 'react'
 
-const SinglePlant: React.FC<SinglePlantProps> = ({plantId, findAmount, plantName}) => {
+const SinglePlant = ({plantId, findAmount, plantName}: SinglePlantProps) => {
 
         const [plant, setPlant] = useState<Plant[]>([])
     

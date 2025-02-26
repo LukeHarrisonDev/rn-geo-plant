@@ -47,10 +47,3 @@ export type SinglePlantScreenProps = { route: RouteProp<PlantListStackParamList,
 
 //// SinglePlant
 export type SinglePlantProps = { plantId: number; findAmount: number, plantName: string }
-
-//// FoundPlantScreen
-export type FoundPlantCardNavigationProp = NativeStackNavigationProp<PlantListStackParamList, 'FoundPlantsScreen'>
-
-export type FoundPlantsCardProps= {
-    navigation: FoundPlantCardNavigationProp
-}
