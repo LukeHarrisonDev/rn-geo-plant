@@ -1,7 +1,6 @@
 import { StyleSheet, SafeAreaView } from 'react-native'
 import colours from '../config/colours'
 
-import { FoundPlantsCardProps } from '../types/plants'
 import FoundPlantsProvider from '../components/FoundPlantsProvider'
 
 const FoundPlantsScreen = () => {

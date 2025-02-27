@@ -1,18 +1,27 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
+import { FoundPlant, FoundPlantsListProps } from '../types/foundPlants-types'
 
-const FoundPlantsList = () => {
+const FoundPlantsList = ({foundPlants}: FoundPlantsListProps) => {
 
 
 
     return (
-        <View>
-            <Pressable onPress={() => {
-                // Hard coded for now
-                // navigation.navigate("SingleFoundPlantScreen", { findId: 5 })
-            }}>
-                <Text >FoundPlantsList</Text>
-            </Pressable>
-        </View>
+        <FlatList
+            // contentContainerStyle={styles.foundList}
+            data={foundPlants}
+            keyExtractor={(item) => item.find_id.toString()}
+            numColumns={1}
+            
+            renderItem={({item}) => {
+                return (
+                    <View>
+                        <Text>
+                            {item.location_name}
+                        </Text>
+                    </View>
+                )
+            }}
+        />
     )
 }
 

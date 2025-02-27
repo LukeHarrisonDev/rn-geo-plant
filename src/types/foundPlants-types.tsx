@@ -16,3 +16,7 @@ export type FoundPlant = {
 export type UsersFoundPlantsResponse = {
     foundPlants: FoundPlant[]
 }
+
+export type FoundPlantsListProps = {
+    foundPlants: FoundPlant[]
+}

@@ -23,7 +23,7 @@ const FoundPlantsProvider = () => {
         <View>
             <FoundPlantsMap/>
             <FoundPlantFilters/>
-            <FoundPlantsList/>
+            <FoundPlantsList foundPlants={foundPlants}/>
         </View>
     )
 }
