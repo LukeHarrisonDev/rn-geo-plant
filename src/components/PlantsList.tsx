@@ -25,7 +25,7 @@ const PlantsList = ({ navigation }: PlantsScreenProps) => {
         setTimeout(async () => {
             await loadUserPlants()
             setRefreshing(false)
-        }, 2000)
+        }, 1500)
     }
 
     useEffect(() => {

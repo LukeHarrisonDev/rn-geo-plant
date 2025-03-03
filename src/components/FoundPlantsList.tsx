@@ -1,4 +1,4 @@
-import { FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import { FoundPlant } from '../types/foundPlants-types'
 import FoundPlantsMap from './FoundPlantsMap'
 import FoundPlantFilters from './FoundPlantFilters'
@@ -10,15 +10,36 @@ import { formatDate, formatTime } from '../utils/date-and-time'
 const FoundPlantsList = () => {
 
     const [foundPlants, setFoundPlants] = useState<FoundPlant[]>([])
+    const [isLoading, setIsLoading] = useState(true)
+    const [refreshing, setRefreshing] = useState(false)
     
     async function loadUsersFoundPlants() {
+        setIsLoading(true)
         const FoundPlantsData = await fetchUsersFoundPlants(5) // Hard coded User for now
         setFoundPlants(FoundPlantsData.foundPlants)
+        setIsLoading(false)
+    }
+
+    async function handleRefresh() {
+        setRefreshing(true)
+        setTimeout(async () => {
+            await loadUsersFoundPlants()
+            setRefreshing(false)
+        }, 1500)
     }
 
     useEffect(() => {
         loadUsersFoundPlants()
     }, [])
+
+    if(isLoading) {
+        return (
+            <ActivityIndicator
+                size="large"
+                color={colours.darkHighlight}  
+            />
+        )
+    }
 
     return (
         <FlatList
@@ -26,6 +47,8 @@ const FoundPlantsList = () => {
             data={foundPlants}
             keyExtractor={(item) => item.find_id.toString()}
             numColumns={1}
+            refreshing={refreshing}
+            onRefresh={handleRefresh}
             ListHeaderComponent={
                 <>
                     <FoundPlantsMap foundPlants={foundPlants}/>
@@ -94,7 +117,7 @@ const styles = StyleSheet.create({
         height: 75,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "lightgray",
+        // backgroundColor: "lightgray",
 
     },
     image: {
