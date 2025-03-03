@@ -38,6 +38,13 @@ export default {
         projectId: "c706fc66-0cff-4cca-8978-c22f428ee43f",
       },
     },
-    plugins: ["expo-font"],
+    plugins: [
+      "expo-font", 
+      // [
+      //   "expo-location", { 
+      //     locationWhenInUsePermission: `Allow Geo Plant to use your location when using the app.`
+      //   }
+      // ],
+    ],
   },
-} as const;
+} as const
