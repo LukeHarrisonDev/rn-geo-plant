@@ -70,7 +70,7 @@ const PlantsList = ({ navigation }: PlantsScreenProps) => {
                             source={{
                                 uri: item.plant_image_url,
                             }}
-                            />
+                        />
                         <Text style={styles.cardTitle}>{item.plant_name}</Text>
                         {/* <Text style={styles.text}>Appears in: {"\n"}{item.season}</Text> */}
                         {/* <View style={styles.foundText}> */}

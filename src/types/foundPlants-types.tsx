@@ -1,22 +1,25 @@
 //// API ////
 export type FoundPlant = {
     find_id: number
-    plant_id: string
+    plant_id: number
     found_by: number
-    photo_url: string
+    photo_urls: string[]
     location_name: string
     location: {
-        latitude: string
-        longitude: string
+        lat: number
+        lon: number
     }
     comment: string
     created_at: string
+    photo_cloud_names: string[]
+    plant_name: string
+    season: string[]
 }
 
 export type UsersFoundPlantsResponse = {
     foundPlants: FoundPlant[]
 }
 
-export type FoundPlantsListProps = {
+export type FoundPlantsMapProps = {
     foundPlants: FoundPlant[]
 }
