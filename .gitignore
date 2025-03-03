@@ -37,3 +37,6 @@ yarn-error.*
 
 # personal
 notes
+unused
+
+*.env

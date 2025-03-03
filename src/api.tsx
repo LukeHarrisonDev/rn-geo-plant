@@ -23,6 +23,5 @@ export async function fetchSinglePlant(plantId: number): Promise<SinglePlantResp
 
 export async function fetchUsersFoundPlants(userId: number): Promise<UsersFoundPlantsResponse> {
     const response = await geoPlantApi.get<UsersFoundPlantsResponse>(`users/${userId}/found_plants`)
-    console.log(response,"<<< Response")
     return response.data
 }
