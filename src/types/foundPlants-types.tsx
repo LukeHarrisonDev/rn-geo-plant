@@ -1,3 +1,7 @@
+import { NativeStackNavigationProp } from "@react-navigation/native-stack"
+import { PlantListStackParamList } from "./plants-types"
+import { RouteProp } from "@react-navigation/native"
+
 //// API ////
 export type FoundPlant = {
     find_id: number
@@ -23,3 +27,18 @@ export type UsersFoundPlantsResponse = {
 export type FoundPlantsMapProps = {
     foundPlants: FoundPlant[]
 }
+
+
+//// Navigation ////
+//// FoundPlantScreen
+export type FoundPlantScreenNavigationProp = NativeStackNavigationProp<PlantListStackParamList, 'FoundPlantsScreen'>
+
+export type FoundPlantsScreenProps= {
+    navigation: FoundPlantScreenNavigationProp
+}
+
+//// SingleFoundPlantScreen
+export type SingleFoundPlantScreenProps = { route: RouteProp<PlantListStackParamList, "SingleFoundPlantScreen"> }
+
+//// SingleFoundPlant
+export type SinglePlantProps = { findId: number }

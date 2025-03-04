@@ -3,7 +3,7 @@ import colours from '../config/colours'
 import PlantsList from '../components/PlantsList'
 import FoundPlantsButton from '../components/FoundPlantsButton'
 
-import { PlantsScreenProps } from '../types/plants'
+import { PlantsScreenProps } from '../types/plants-types'
 
 const PlantsScreen = ({ navigation }: PlantsScreenProps) => {
     return (

@@ -1,7 +1,7 @@
 import { Pressable, Text, FlatList, StyleSheet, Image, ActivityIndicator, View } from 'react-native'
 import { fetchUsersPlants } from '../api'
 import { useEffect, useState } from 'react'
-import { PlantsScreenProps, UserPlant } from '../types/plants'
+import { PlantsScreenProps, UserPlant } from '../types/plants-types'
 import colours from '../config/colours'
 
 const PlantsList = ({ navigation }: PlantsScreenProps) => {

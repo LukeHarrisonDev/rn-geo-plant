@@ -3,7 +3,7 @@ import PlantsScreen from "../screens/PlantsScreen"
 import SinglePlantScreen from "../screens/SinglePlantScreen"
 import FoundPlantsScreen from "../screens/FoundPlantsScreen"
 import SingleFoundPlantScreen from "../screens/SingleFoundPlantScreen"
-import { PlantListStackParamList } from "../types/plants"
+import { PlantListStackParamList } from "../types/plants-types"
 import colours from "../config/colours"
 import { Pressable, StyleSheet, Text, View } from "react-native"
 

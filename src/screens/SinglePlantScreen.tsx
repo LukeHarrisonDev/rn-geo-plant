@@ -1,6 +1,6 @@
 import { StyleSheet, Text, SafeAreaView } from 'react-native'
 import colours from '../config/colours'
-import { Plant, SinglePlantScreenProps } from '../types/plants'
+import { Plant, SinglePlantScreenProps } from '../types/plants-types'
 import SinglePlant from '../components/SinglePlant'
 
 const SinglePlantScreen = ({ route }: SinglePlantScreenProps) => {

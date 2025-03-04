@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios'
-import { PlantsResponse, SinglePlantResponse, UserPlantsResponse } from './types/plants';
+import { PlantsResponse, SinglePlantResponse, UserPlantsResponse } from './types/plants-types';
 import { UsersFoundPlantsResponse } from './types/foundPlants-types';
 
 const geoPlantApi: AxiosInstance = axios.create({

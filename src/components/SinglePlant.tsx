@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, Text, View, Image } from 'react-native'
-import { Plant, SinglePlantProps } from '../types/plants'
+import { Plant, SinglePlantProps } from '../types/plants-types'
 import { useEffect, useState } from 'react'
 import { fetchSinglePlant } from '../api'
 import colours from '../config/colours'

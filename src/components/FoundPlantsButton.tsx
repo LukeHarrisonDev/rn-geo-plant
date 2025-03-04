@@ -1,6 +1,6 @@
 import { TouchableOpacity, StyleSheet, Text } from 'react-native'
 import colours from '../config/colours'
-import { PlantsScreenProps } from '../types/plants'
+import { PlantsScreenProps } from '../types/plants-types'
 
 const FoundPlantsButton = ({ navigation }: PlantsScreenProps) => {
 
