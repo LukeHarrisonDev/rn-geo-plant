@@ -34,7 +34,6 @@ const SinglePlant = ({ plantId, findAmount }: SinglePlantProps) => {
                 <Text style={styles.found}>
                     Found: {findAmount}
                 </Text>
-
             </View>
         </View>
     )

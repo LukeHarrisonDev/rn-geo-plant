@@ -3,7 +3,7 @@ import { PlantListStackParamList } from "./plants-types"
 import { RouteProp } from "@react-navigation/native"
 
 //// APIs ////
-export type FoundPlant = {
+export type UserFoundPlant = {
     find_id: number
     plant_id: number
     found_by: number
@@ -21,14 +21,14 @@ export type FoundPlant = {
 }
 
 export type UsersFoundPlantsResponse = {
-    foundPlants: FoundPlant[]
+    foundPlants: UserFoundPlant[]
 }
 
 export type FoundPlantsMapProps = {
-    foundPlants: FoundPlant[]
+    foundPlants: UserFoundPlant[]
 }
 
-export type SingleFoundPlant = {
+export type FoundPlant = {
     find_id: number
     plant_id: number
     found_by: number
@@ -42,10 +42,12 @@ export type SingleFoundPlant = {
     created_at: string
     photo_cloud_names: string[]
     plant_name: string
+    time?: string
+    date?: string
 }
 
 export type SingleFoundPlantResponse = {
-    foundPlant: SingleFoundPlant[]
+    foundPlant: FoundPlant
 }
 
 

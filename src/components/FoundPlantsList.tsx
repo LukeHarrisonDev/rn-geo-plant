@@ -1,5 +1,5 @@
 import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native'
-import { FoundPlant, FoundPlantsScreenProps } from '../types/foundPlants-types'
+import { UserFoundPlant, FoundPlantsScreenProps } from '../types/foundPlants-types'
 import FoundPlantsMap from './FoundPlantsMap'
 import FoundPlantFilters from './FoundPlantFilters'
 import { useEffect, useState } from 'react'
@@ -9,7 +9,7 @@ import { formatDate, formatTime } from '../utils/date-and-time'
 
 const FoundPlantsList = ({ navigation }: FoundPlantsScreenProps) => {
 
-    const [foundPlants, setFoundPlants] = useState<FoundPlant[]>([])
+    const [foundPlants, setFoundPlants] = useState<UserFoundPlant[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [refreshing, setRefreshing] = useState(false)
     
@@ -63,7 +63,7 @@ const FoundPlantsList = ({ navigation }: FoundPlantsScreenProps) => {
             renderItem={({item}) => {
                 return (
                     <Pressable
-                        onPress={() => () => handlePress(item.find_id, item.plant_name)}
+                        onPress={() => handlePress(item.find_id, item.plant_name)}
                         style={styles.findCard}
                     >
                         <Pressable onPress={() => {console.log(item.location)}}>
@@ -123,7 +123,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         // backgroundColor: "lightgray",
-
     },
     image: {
         width: "100%",
