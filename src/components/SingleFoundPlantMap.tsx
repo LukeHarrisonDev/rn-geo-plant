@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
-import { FoundPlantsMapProps } from '../types/foundPlants-types'
+import { SingleFoundPlantMapProps } from '../types/foundPlants-types'
 import colours from '../config/colours'
 import { useEffect, useState } from 'react'
 
 import * as Location from 'expo-location'
 
-const FoundPlantsMap = ({foundPlants}: FoundPlantsMapProps) => {
+const SingleFoundPlantMap = ({ foundPlant }: SingleFoundPlantMapProps) => {
 
     const [location, setLocation] = useState<Location.LocationObject | null>(null)
 
@@ -16,7 +16,7 @@ const FoundPlantsMap = ({foundPlants}: FoundPlantsMapProps) => {
             console.log('Permission to access location was denied')
             return
         }
-    
+
         let location = await Location.getCurrentPositionAsync({})
         setLocation(location)
     }
@@ -32,45 +32,39 @@ const FoundPlantsMap = ({foundPlants}: FoundPlantsMapProps) => {
                 style={styles.map}
                 showsUserLocation
                 initialRegion={{
-                    latitude: 53.9425,
-                    longitude: -1.9101,
-                    latitudeDelta: 1,
-                    longitudeDelta: 1,
+                    latitude: foundPlant.location.lat,
+                    longitude: foundPlant.location.lon,
+                    latitudeDelta: 0.01,
+                    longitudeDelta: 0.01,
                 }}
                 >
-                {foundPlants.map((foundPlant) => {
-                    return (
-                        <Marker
-                            key={foundPlant.find_id}
-                            coordinate={{
-                                latitude: foundPlant.location.lat,
-                                longitude: foundPlant.location.lon,
-                            }}
-                            title={foundPlant.plant_name}
-                            description={foundPlant.location_name}
-                        />
-                    )
-                })}
+                <Marker
+                    key={foundPlant.find_id}
+                    coordinate={{
+                        latitude: foundPlant.location.lat,
+                        longitude: foundPlant.location.lon,
+                    }}
+                    title={foundPlant.plant_name}
+                    description={foundPlant.location_name}
+                    />
             </MapView>
         </View>
     )
 }
 
-export default FoundPlantsMap
+export default SingleFoundPlantMap
 
 const styles = StyleSheet.create({
     mapContainer: {
-        flex: 1,
         width: "90%",
         height: 300,
-        backgroundColor: colours.bgHighlight,
         alignSelf: "center",
         alignItems: "center",
         justifyContent: "center",
-        borderRadius: 10,
+        margin: 20,
     },
     map: {
-        width: "90%",
-        height: "90%",
+        width: "100%",
+        height: "100%",
     },
 })

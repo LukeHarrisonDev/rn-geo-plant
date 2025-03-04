@@ -1,7 +1,7 @@
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { RouteProp } from "@react-navigation/native"
 
-//// API ////
+//// APIs ////
 export type Plant = {
     plant_id: number
     plant_name: string
@@ -35,7 +35,7 @@ export type PlantListStackParamList = {
     PlantsScreen: undefined
     SinglePlantScreen: { plantId: number; findAmount: number, plantName: string }
     FoundPlantsScreen: undefined
-    SingleFoundPlantScreen: { findId: number }
+    SingleFoundPlantScreen: { findId: number, plantName: string }
 }
 
 //// PlantScreen
@@ -52,12 +52,3 @@ export type SinglePlantScreenProps = { route: RouteProp<PlantListStackParamList,
 
 //// SinglePlant
 export type SinglePlantProps = { plantId: number; findAmount: number, plantName: string }
-
-
-
-//// FoundPlantScreen
-export type FoundPlantCardNavigationProp = NativeStackNavigationProp<PlantListStackParamList, 'FoundPlantsScreen'>
-
-export type FoundPlantsCardProps= {
-    navigation: FoundPlantCardNavigationProp
-}

@@ -1,10 +1,10 @@
 import { ScrollView, StyleSheet, Text, View, Image } from 'react-native'
-import { Plant, SinglePlantProps } from '../types/plants'
+import { Plant, SinglePlantProps } from '../types/plants-types'
 import { useEffect, useState } from 'react'
 import { fetchSinglePlant } from '../api'
 import colours from '../config/colours'
 
-const SinglePlant = ({plantId, findAmount, plantName}: SinglePlantProps) => {
+const SinglePlant = ({ plantId, findAmount }: SinglePlantProps) => {
 
         const [plant, setPlant] = useState<Plant | null>(null)
 
@@ -34,7 +34,6 @@ const SinglePlant = ({plantId, findAmount, plantName}: SinglePlantProps) => {
                 <Text style={styles.found}>
                     Found: {findAmount}
                 </Text>
-
             </View>
         </View>
     )

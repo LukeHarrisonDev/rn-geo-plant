@@ -3,7 +3,7 @@ import PlantsScreen from "../screens/PlantsScreen"
 import SinglePlantScreen from "../screens/SinglePlantScreen"
 import FoundPlantsScreen from "../screens/FoundPlantsScreen"
 import SingleFoundPlantScreen from "../screens/SingleFoundPlantScreen"
-import { PlantListStackParamList } from "../types/plants"
+import { PlantListStackParamList } from "../types/plants-types"
 import colours from "../config/colours"
 import { Pressable, StyleSheet, Text, View } from "react-native"
 
@@ -26,8 +26,8 @@ const PlantListStack = () => {
                         backgroundColor: colours.bgHighlight
                     },
                     headerTintColor: colours.dark,
-                    // Use this for extra buttons on the header
                     
+                    // Use this for extra buttons on the header
                     // headerRight: () => (
                     //     <Pressable>
                     //         <Text>Hello</Text>
@@ -72,13 +72,11 @@ const PlantListStack = () => {
 
             <Stack.Screen name="SingleFoundPlantScreen" component={SingleFoundPlantScreen}
                 options={({ route }) => ({
-                    // title: route.params.findId,
-                    ////////// This should have the route 
-                    title: "SingleFoundPlantScreen",
+                    title: route.params.plantName,
                     headerTitle: () => (
                         <View style={styles.container}>
                             <Text style={styles.titleText} numberOfLines={1} adjustsFontSizeToFit>
-                                {route.params.findId}
+                                {route.params.plantName}
                             </Text>
                         </View>
                     ),
