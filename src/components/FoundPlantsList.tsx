@@ -48,6 +48,7 @@ const FoundPlantsList = ({ navigation }: FoundPlantsScreenProps) => {
 
     return (
         <FlatList
+            showsVerticalScrollIndicator={false}
             style={styles.foundList}
             data={foundPlants}
             keyExtractor={(item) => item.find_id.toString()}
@@ -87,7 +88,6 @@ const FoundPlantsList = ({ navigation }: FoundPlantsScreenProps) => {
                                 Found: {formatTime(item.created_at)} - {formatDate(item.created_at)}
                             </Text>
                         </View>
-                       
                     </Pressable>
                 )
             }}

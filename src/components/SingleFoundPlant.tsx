@@ -1,9 +1,10 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { FoundPlant, SingleFoundPlantProps } from '../types/foundPlants-types'
 import { useEffect, useState } from 'react'
 import { fetchSingleFoundPlant } from '../api'
 import colours from '../config/colours'
 import { formatDate, formatTime } from '../utils/date-and-time'
+import SingleFoundPlantMap from './SingleFoundPlantMap'
 
 const SingleFoundPlant = ({ findId }: SingleFoundPlantProps) => {
 
@@ -21,23 +22,25 @@ const SingleFoundPlant = ({ findId }: SingleFoundPlantProps) => {
 	}, [])
 
 	return (
-		<View style={styles.foundPlantContainer}>
-			<Text style={styles.foundAtText}>Found at {foundPlant?.location_name}</Text>
-			<View style={styles.imageContainer}>
-				<Image
-					style={styles.image}
-					source={{uri: foundPlant?.photo_urls[0]}}
-				/>
+		<ScrollView showsVerticalScrollIndicator={false}>
+			<View style={styles.foundPlantContainer}>
+				<Text style={styles.foundAtText}>Found at {foundPlant?.location_name}</Text>
+				<View style={styles.imageContainer}>
+					<Image
+						style={styles.image}
+						source={{uri: foundPlant?.photo_urls[0]}}
+					/>
+				</View>
+				<Text style={styles.comment}>My Comment:</Text>
+				<Text> {foundPlant?.comment}</Text>
+				{foundPlant ? <SingleFoundPlantMap foundPlant={foundPlant}/> : null}
+				<View style={styles.statsContainer}>
+					<Text style={styles.found}>
+					Found: {foundPlant?.time} - {foundPlant?.date}
+					</Text>
+				</View>
 			</View>
-			<Text style={styles.comment}>My Comment:</Text>
-			<Text> {foundPlant?.comment}</Text>
-			<Text>MAP VIEW</Text>
-			<View style={styles.statsContainer}>
-				<Text style={styles.found}>
-				Found: {foundPlant?.time} - {foundPlant?.date}
-				</Text>
-			</View>
-		</View>
+		</ScrollView>
 	)
 }
 
@@ -81,8 +84,9 @@ const styles = StyleSheet.create({
         // position: "absolute",
         position: "relative",
         width: "90%",
-        height: 50,
-        margin: 20,
+		marginBottom: 10,
+        height: 20,
+		// backgroundColor: "red"
     },
 	found: {
         position: "absolute",

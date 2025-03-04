@@ -50,6 +50,10 @@ export type SingleFoundPlantResponse = {
     foundPlant: FoundPlant
 }
 
+export type SingleFoundPlantMapProps = {
+    foundPlant: FoundPlant
+}
+
 
 
 //// Navigation ////

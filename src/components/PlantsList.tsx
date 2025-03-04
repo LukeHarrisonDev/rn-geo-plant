@@ -47,6 +47,7 @@ const PlantsList = ({ navigation }: PlantsScreenProps) => {
 
     return (
         <FlatList
+            showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.list}
             data={plantList}
             keyExtractor={(item) => item.plant_id.toString()}
