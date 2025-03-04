@@ -1,10 +1,15 @@
 import { StyleSheet, Text, SafeAreaView } from 'react-native'
 import colours from '../config/colours'
+import { SingleFoundPlantScreenProps } from '../types/foundPlants-types'
+import SingleFoundPlant from '../components/SingleFoundPlant'
 
-const SingleFoundPlantScreen = () => {
-return (
-        <SafeAreaView style={styles.container}>
-            <Text style={styles.titleText}>*Place and Plant Name*</Text>
+const SingleFoundPlantScreen = ({ route }: SingleFoundPlantScreenProps) => {
+
+    const { findId, plantName } = route.params
+
+    return (
+        <SafeAreaView style={ styles.container }>
+            <SingleFoundPlant findId={ findId } plantName={plantName} />
         </SafeAreaView>
     )
 }

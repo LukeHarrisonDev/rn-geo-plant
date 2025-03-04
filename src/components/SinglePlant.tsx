@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { fetchSinglePlant } from '../api'
 import colours from '../config/colours'
 
-const SinglePlant = ({plantId, findAmount, plantName}: SinglePlantProps) => {
+const SinglePlant = ({ plantId, findAmount }: SinglePlantProps) => {
 
         const [plant, setPlant] = useState<Plant | null>(null)
 

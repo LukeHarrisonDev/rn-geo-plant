@@ -8,9 +8,8 @@ const SinglePlantScreen = ({ route }: SinglePlantScreenProps) => {
     const { plantId, findAmount, plantName } = route.params
 
     return (
-        <SafeAreaView style={styles.container}>
-            <SinglePlant plantId={plantId} findAmount={findAmount} plantName={plantName}/>
-            {/* <Text style={styles.titleText}>{plantId} {findAmount} {plantName}</Text> */}
+        <SafeAreaView style={ styles.container }>
+            <SinglePlant plantId={ plantId } findAmount={ findAmount } plantName={ plantName }/>
         </SafeAreaView>
     )
 }

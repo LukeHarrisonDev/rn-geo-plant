@@ -2,11 +2,12 @@ import { StyleSheet, SafeAreaView } from 'react-native'
 import colours from '../config/colours'
 
 import FoundPlantsList from '../components/FoundPlantsList'
+import { FoundPlantsScreenProps } from '../types/foundPlants-types'
 
-const FoundPlantsScreen = () => {
+const FoundPlantsScreen = ({ navigation }: FoundPlantsScreenProps) => {
     return (
         <SafeAreaView style={styles.container}>
-            <FoundPlantsList/>
+            <FoundPlantsList navigation={navigation}/>
         </SafeAreaView>
     )
 }

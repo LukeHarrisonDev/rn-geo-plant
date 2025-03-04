@@ -1,5 +1,5 @@
 import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native'
-import { FoundPlant } from '../types/foundPlants-types'
+import { FoundPlant, FoundPlantsScreenProps } from '../types/foundPlants-types'
 import FoundPlantsMap from './FoundPlantsMap'
 import FoundPlantFilters from './FoundPlantFilters'
 import { useEffect, useState } from 'react'
@@ -7,7 +7,7 @@ import { fetchUsersFoundPlants } from '../api'
 import colours from '../config/colours'
 import { formatDate, formatTime } from '../utils/date-and-time'
 
-const FoundPlantsList = () => {
+const FoundPlantsList = ({ navigation }: FoundPlantsScreenProps) => {
 
     const [foundPlants, setFoundPlants] = useState<FoundPlant[]>([])
     const [isLoading, setIsLoading] = useState(true)
@@ -31,6 +31,11 @@ const FoundPlantsList = () => {
     useEffect(() => {
         loadUsersFoundPlants()
     }, [])
+
+    function handlePress(findId: number, plantName: string) {
+        navigation.navigate("SingleFoundPlantScreen", { findId, plantName })
+
+    }
 
     if(isLoading) {
         return (
@@ -58,7 +63,7 @@ const FoundPlantsList = () => {
             renderItem={({item}) => {
                 return (
                     <Pressable
-                        onPress={() => console.log(item.comment)}
+                        onPress={() => () => handlePress(item.find_id, item.plant_name)}
                         style={styles.findCard}
                     >
                         <Pressable onPress={() => {console.log(item.location)}}>
