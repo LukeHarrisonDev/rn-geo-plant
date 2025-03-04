@@ -5,6 +5,7 @@ import { fetchSingleFoundPlant } from '../api'
 import colours from '../config/colours'
 import { formatDate, formatTime } from '../utils/date-and-time'
 import SingleFoundPlantMap from './SingleFoundPlantMap'
+import AboutPlantButton from './AboutPlantButton'
 
 const SingleFoundPlant = ({ findId }: SingleFoundPlantProps) => {
 
@@ -40,6 +41,8 @@ const SingleFoundPlant = ({ findId }: SingleFoundPlantProps) => {
 					</Text>
 				</View>
 			</View>
+			{/* Tricky to implement due to the find amount not being passed through, will figure this out later */}
+			{/* <AboutPlantButton/> */}
 		</ScrollView>
 	)
 }
