@@ -1,7 +1,6 @@
-import { Pressable, Alert, View, StyleSheet } from "react-native"
+import { Pressable, Alert, StyleSheet } from "react-native"
 import * as ImagePicker from "expo-image-picker"
 import { FindAPlantScreenProps } from "../types/findAPlant-types"
-import { Colors } from "react-native/Libraries/NewAppScreen"
 import colours from "../config/colours"
 
 const FindAPlantAlert = ({ navigation }: FindAPlantScreenProps) => {
