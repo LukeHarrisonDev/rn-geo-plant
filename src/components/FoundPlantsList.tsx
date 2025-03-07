@@ -122,7 +122,6 @@ const styles = StyleSheet.create({
         height: 75,
         alignItems: "center",
         justifyContent: "center",
-        // backgroundColor: "lightgray",
     },
     image: {
         width: "100%",
