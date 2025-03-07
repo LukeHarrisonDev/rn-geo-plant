@@ -61,7 +61,7 @@ const FoundPlantsList = ({ navigation }: FoundPlantsScreenProps) => {
                     <FoundPlantFilters/>
                 </>
             }
-            renderItem={({item}) => {
+            renderItem={({ item }) => {
                 return (
                     <Pressable
                         onPress={() => handlePress(item.find_id, item.plant_name)}
@@ -73,8 +73,8 @@ const FoundPlantsList = ({ navigation }: FoundPlantsScreenProps) => {
                                     style={styles.image}
                                     source={{
                                         uri: item.photo_urls[0],
-                                        }}
-                                    />
+                                    }}
+                                />
                             </View>
                         </Pressable>
                         <View style={styles.textContent}>
@@ -122,7 +122,6 @@ const styles = StyleSheet.create({
         height: 75,
         alignItems: "center",
         justifyContent: "center",
-        // backgroundColor: "lightgray",
     },
     image: {
         width: "100%",

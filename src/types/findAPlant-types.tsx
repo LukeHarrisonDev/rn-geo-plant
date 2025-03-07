@@ -1,6 +1,8 @@
 import { RouteProp } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 
+//// Navigation ////
+//// FindAPlantStack
 export type FindAPlantStackParamList = {
     FindAPlantAlert: undefined
     WhichPlantScreen: { imageUri: string }
@@ -14,4 +16,10 @@ export type FindAPlantScreenProps= {
 
 
 
-export type WhichPlantScreenProps = { route: RouteProp<FindAPlantStackParamList, "WhichPlantScreen"> }
+export type WhichPlantScreenProps = { 
+    route: RouteProp<FindAPlantStackParamList, "WhichPlantScreen">
+}
+
+export type WhichPlantListProps = {
+    imageUri: string
+}
