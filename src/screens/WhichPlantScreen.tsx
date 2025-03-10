@@ -3,12 +3,12 @@ import colours from '../config/colours'
 import { WhichPlantScreenProps } from '../types/findAPlant-types'
 import WhichPlantList from '../components/WhichPlantList'
 
-const WhichPlantScreen = ({ route }: WhichPlantScreenProps) => {
+const WhichPlantScreen = ({ route, navigation }: WhichPlantScreenProps) => {
 
     const { imageUri } = route.params
     return (
         <SafeAreaView style={styles.container}>
-            <WhichPlantList imageUri={imageUri} />
+            <WhichPlantList navigation={navigation} imageUri={imageUri} />
         </SafeAreaView>
     )
 }

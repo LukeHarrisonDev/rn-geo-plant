@@ -5,23 +5,23 @@ import { Result } from '../types/plantNetResponse-types'
 import { fetchPlantNetData } from '../api'
 import colours from '../config/colours'
 
-const WhichPlantList = ({ imageUri }: WhichPlantListProps) => {
+const WhichPlantList = ({ imageUri, navigation }: WhichPlantListProps) => {
 
-    const formData = new FormData()
+    const plantFormData = new FormData()
 
-    formData.append("images", {
+    plantFormData.append("images", {
         uri: imageUri,
         name: "plant.jpg",
         type: "image/jpeg",
     } as any)
-    
+
     const [plantNetData, setplantNetData] = useState<Result[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState("")
 
     async function loadPlantNetData() {
         setIsLoading(true)
-        const foundPlantsData = await fetchPlantNetData(formData)
+        const foundPlantsData = await fetchPlantNetData(plantFormData)
         if (foundPlantsData.data) {
             setplantNetData(foundPlantsData.data)
             setIsLoading(false)
@@ -33,6 +33,10 @@ const WhichPlantList = ({ imageUri }: WhichPlantListProps) => {
     useEffect(() => {
         loadPlantNetData()
     }, [])
+
+    function handlePress(plantName: string, imageUri: string) {
+        navigation.navigate("LogYourPlantScreen", { plantName, imageUri })
+    }
 
     if(isLoading) {
         return (
@@ -116,8 +120,8 @@ const WhichPlantList = ({ imageUri }: WhichPlantListProps) => {
                             </View>
                             <TouchableOpacity
                                 onPress={() => {
-                                    // handlePress()
-                                    console.log("Yes this one!!!")
+                                    handlePress(item.species.commonNames[0], imageUri)
+                                    // console.log("Yes this one!!!")
                                 }} 
                                 style={styles.button}
                             >
@@ -140,7 +144,7 @@ const styles = StyleSheet.create({
         height: "30%",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "plum",
+        backgroundColor: colours.darkHighlight,
         margin: 20,
     },
     image: {
