@@ -33,9 +33,8 @@ export async function fetchSingleFoundPlant(findId: number): Promise<SingleFound
     return response.data
 }
 
-
 export async function fetchPlantNetData(formData: any): Promise<{ data?: Result[], message?: string }> {
-    const url = `https://my-api.plantnet.org/v2/identify/all?include-related-images=true&no-reject=false&nb-results=5&lang=en&api-key=${PLANTNET_API_KEY}`
+    const url = `https://my-api.plantnet.org/v2/identify/all?include-related-images=true&no-reject=false&nb-results=3&lang=en&api-key=${PLANTNET_API_KEY}`
 
     // I think errors should be caught elsewhere
     try {

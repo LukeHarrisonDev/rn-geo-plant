@@ -1,4 +1,4 @@
-import { ActivityIndicator, FlatList, FlatListComponent, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { WhichPlantListProps } from '../types/findAPlant-types'
 import { Result } from '../types/plantNetResponse-types'
@@ -43,6 +43,14 @@ const WhichPlantList = ({ imageUri }: WhichPlantListProps) => {
                 />
                 <Text>Just checking which plant you've found...</Text>
             </>
+        )
+    }
+
+    if(error) {
+        return (
+            <Text>
+                {error}
+            </Text>
         )
     }
 

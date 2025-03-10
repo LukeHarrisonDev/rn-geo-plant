@@ -8,16 +8,6 @@ const WhichPlantScreen = ({ route }: WhichPlantScreenProps) => {
     const { imageUri } = route.params
     return (
         <SafeAreaView style={styles.container}>
-            {/* Use new Component Here - FlatList with the header as the Picture that was taken, and the rendered items as the results of the API */}
-
-            {/* <View style={styles.imageContainer}>
-                <Image 
-                    style={styles.image}
-                    source={{
-                        uri: imageUri
-                    }}
-                />
-            </View> */}
             <WhichPlantList imageUri={imageUri} />
         </SafeAreaView>
     )
