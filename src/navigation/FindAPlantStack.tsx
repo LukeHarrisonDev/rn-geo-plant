@@ -4,6 +4,7 @@ import WhichPlantScreen from '../screens/WhichPlantScreen'
 import { FindAPlantStackParamList } from '../types/findAPlant-types'
 import FindAPlantAlert from '../screens/FindAPlantAlert'
 import colours from '../config/colours'
+import LogYourPlantScreen from '../screens/LogYourPlantScreen'
 
 const Stack = createNativeStackNavigator<FindAPlantStackParamList>()
 
@@ -36,6 +37,22 @@ const FindAPlantStack = () => {
                         </View>
                     ),
                     title: "WhichPlantScreen",
+                    headerStyle: {
+                        backgroundColor: colours.bgHighlight
+                    },
+                    headerTintColor: colours.dark
+                }}
+            />
+             <Stack.Screen name="LogYourPlantScreen" component={LogYourPlantScreen}
+                options={{
+                    headerTitle: () => (
+                        <View style={styles.container}>
+                            <Text style={styles.titleText} numberOfLines={1} adjustsFontSizeToFit>
+                                Log Your Plant
+                            </Text>
+                        </View>
+                    ),
+                    title: "LogYourPlantScreen",
                     headerStyle: {
                         backgroundColor: colours.bgHighlight
                     },

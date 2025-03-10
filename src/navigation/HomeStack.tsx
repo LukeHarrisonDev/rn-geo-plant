@@ -6,32 +6,27 @@ import LoginScreen from '../screens/LoginScreen'
 const Stack = createNativeStackNavigator()
 
 const HomeStack = () => {
-  return (
-    <Stack.Navigator>
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="LoggedOutScreen" component={LoggedOutScreen}
+                options={{
+                headerShown: false,
+                }}
+            />
 
-      <Stack.Screen name="LoggedOutScreen" component={LoggedOutScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
+            <Stack.Screen name="SignUpScreen" component={SignUpScreen}
+                options={{
+                headerShown: false,
+                }}
+            />
 
-      <Stack.Screen name="SignUpScreen" component={SignUpScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
-
-      <Stack.Screen name="LoginScreen" component={LoginScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
-
-    </Stack.Navigator>
-
-    // If logged in, show LoggedInScreen with no stack. Put it here?
-
-  )
+            <Stack.Screen name="LoginScreen" component={LoginScreen}
+                options={{
+                headerShown: false,
+                }}
+            />
+        </Stack.Navigator>
+    )
 }
 
 export default HomeStack
